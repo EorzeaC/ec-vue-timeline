@@ -1,6 +1,6 @@
 {
   "name": "ec-vue-timeline",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/ec-vue-timeline.umd.min.js",
   "private": false,
   "license": "MIT",
