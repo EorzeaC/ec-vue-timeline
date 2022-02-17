@@ -9,6 +9,12 @@
         size="large"
         solidCircle
       >
+        <i
+          v-if="item.icon"
+          slot="icon"
+          style="font-size: 16px"
+          :class="item.icon"
+        ></i>
         <div>{{ item.content }}</div>
       </ec-timeline-item>
     </ec-timeline>
@@ -29,6 +35,7 @@ export default {
         {
           content: "通过审核",
           time: "2018-04-13",
+          icon: "el-icon-delete",
         },
         {
           content: "创建成功",
@@ -40,4 +47,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped></style>

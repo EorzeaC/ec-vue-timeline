@@ -53,7 +53,7 @@ Vue.use(EcTimeline);
 </script>
 ```
 
-左侧显示文本、自定义圆圈颜色
+左侧显示文本、自定义圆圈颜色、自定义时间轴节点图标
 
 ```html
 <div id="app">
@@ -63,7 +63,14 @@ Vue.use(EcTimeline);
       :key="index"
       :label="item.time"
       :color="item.color"
+      size="large"
     >
+      <i
+          v-if="item.icon"
+          slot="icon"
+          style="font-size: 16px"
+          :class="item.icon"
+        ></i>
       <div>{{ item.content }}</div>
     </ec-timeline-item>
   </ec-timeline>
@@ -82,6 +89,7 @@ Vue.use(EcTimeline);
           {
             content: "通过审核",
             time: "2018-04-13",
+            icon: "el-icon-delete",
           },
           {
             content: "创建成功",
@@ -96,15 +104,16 @@ Vue.use(EcTimeline);
 
 ### Timeline Attributes
 
-| 参数      | 说明                                                        | 类型    | 可选值 | 默认值 |
-| :-------- | ----------------------------------------------------------- | ------- | ------ | ------ |
-| left-show | 时间轴左边是否显示文本（需要和 item 的 label 属性结合使用） | boolean | true   | false  |
+| 参数        | 说明                                   | 类型      | 可选值  | 默认值   |
+|:--------- | ------------------------------------ | ------- | ---- | ----- |
+| left-show | 时间轴左边是否显示文本（需要和 item 的 label 属性结合使用） | boolean | true | false |
 
 ### Timeline-item Attributes
 
-| 参数        | 说明         | 类型    | 可选值       | 默认值  |
-| :---------- | ------------ | ------- | ------------ | ------- |
-| label       | 节点左侧文本 | string  | ——           | ——      |
-| color       | 指定圆圈颜色 | string  | ——           | #0E74DA |
-| solidCircle | 实心节点标识 | boolean | true         | false   |
-| size        | 节点尺寸     | string  | normal/large | normal  |
+| 参数          | 说明                 | 类型      | 可选值          | 默认值     |
+|:----------- | ------------------ | ------- | ------------ | ------- |
+| label       | 节点左侧文本             | string  | ——           | ——      |
+| color       | 指定圆圈颜色             | string  | ——           | #0E74DA |
+| solidCircle | 实心节点标识             | boolean | true         | false   |
+| size        | 节点尺寸               | string  | normal/large | normal  |
+| icon        | 自定义时间轴点图标（使用vue插槽） | VueNode | ——           | ——      |
